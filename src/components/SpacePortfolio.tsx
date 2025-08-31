@@ -243,7 +243,7 @@ export default function SpacePortfolio() {
           }}
         >
           <div className="w-full h-full bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold">
-            <img src="/public/profile-sun.jpg" alt="Profile" className="w-full h-full object-cover" />
+            <img src="/public/profile-sun.jpg" alt="Profile pic" className="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -251,6 +251,7 @@ export default function SpacePortfolio() {
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center z-20">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
             Avinash Nair
+            mm
           </h1>
           
         </div>
