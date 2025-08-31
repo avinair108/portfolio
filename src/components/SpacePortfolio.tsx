@@ -19,8 +19,6 @@ interface Planet {
       technologies?: string[];
     }>;
   };
-  size: number;
-  orbitRadius: number;
   className: string;
 }
 
@@ -47,8 +45,6 @@ const planets: Planet[] = [
         }
       ]
     },
-    size: 60,
-    orbitRadius: 200,
     className: 'planet-1'
   },
   {
@@ -73,8 +69,6 @@ const planets: Planet[] = [
         }
       ]
     },
-    size: 70,
-    orbitRadius: 280,
     className: 'planet-2'
   },
   {
@@ -102,8 +96,6 @@ const planets: Planet[] = [
         }
       ]
     },
-    size: 80,
-    orbitRadius: 360,
     className: 'planet-3'
   },
   {
@@ -128,8 +120,6 @@ const planets: Planet[] = [
         }
       ]
     },
-    size: 55,
-    orbitRadius: 440,
     className: 'planet-4'
   },
   {
@@ -154,8 +144,6 @@ const planets: Planet[] = [
         }
       ]
     },
-    size: 65,
-    orbitRadius: 520,
     className: 'planet-5'
   }
 ];
@@ -197,18 +185,19 @@ export default function SpacePortfolio() {
 
       {/* Solar System Container */}
       <div className="solar-system w-full h-screen">
-        {/* Orbital Paths and Planets */}
-        {planets.map((planet, index) => (
-          <div key={`orbit-${planet.id}`} className={`orbit orbit-${index + 1}`}>
+        {/* Single Orbit Circle with All Planets */}
+        <div className="orbit-circle">
+          {planets.map((planet, index) => (
             <div
+              key={planet.id}
               className={`planet ${planet.className}`}
               onClick={() => setSelectedPlanet(planet)}
               title={planet.name}
             >
               {planet.icon}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* Central Sun (Profile Picture) */}
         <div 
