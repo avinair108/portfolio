@@ -196,42 +196,23 @@ export default function SpacePortfolio() {
       </div>
 
       {/* Solar System Container */}
-      <div className="relative w-full h-screen flex items-center justify-center">
-        {/* Orbital Paths */}
+      <div className="solar-system w-full h-screen">
+        {/* Orbital Paths and Planets */}
         {planets.map((planet, index) => (
-          <div
-            key={`orbit-${planet.id}`}
-            className={`orbit orbit-${index + 1}`}
-            style={{
-              width: `${planet.orbitRadius * 2}px`,
-              height: `${planet.orbitRadius * 2}px`,
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)'
-            }}
-          >
-            {/* Planet */}
+          <div key={`orbit-${planet.id}`} className={`orbit orbit-${index + 1}`}>
             <div
               className={`planet ${planet.className}`}
-              style={{
-                width: `${planet.size}px`,
-                height: `${planet.size}px`,
-                top: `-${planet.size / 2}px`,
-                left: `${planet.orbitRadius - planet.size / 2}px`
-              }}
               onClick={() => setSelectedPlanet(planet)}
               title={planet.name}
             >
-              <div className="flex items-center justify-center w-full h-full text-white">
-                {planet.icon}
-              </div>
+              {planet.icon}
             </div>
           </div>
         ))}
 
         {/* Central Sun (Profile Picture) */}
         <div 
-          className="sun relative z-10"
+          className="sun absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
           style={{
             width: '150px',
             height: '150px'
