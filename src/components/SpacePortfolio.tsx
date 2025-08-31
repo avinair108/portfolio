@@ -243,7 +243,7 @@ export default function SpacePortfolio() {
           }}
         >
           <div className="w-full h-full bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold">
-            AV
+            <img src="/public/profile-sun.jpg" alt="Profile" className="w-full h-full object-cover" />
           </div>
         </div>
 
