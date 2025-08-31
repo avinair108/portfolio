@@ -242,11 +242,9 @@ export default function SpacePortfolio() {
             height: '150px'
           }}
         >
-          <img
-            src="/profile-sun.jpg"
-            alt="Profile"
-            className="w-full h-full object-cover rounded-full"
-          />
+          <div className="w-full h-full bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold">
+            AV
+          </div>
         </div>
 
         {/* Portfolio Title */}
