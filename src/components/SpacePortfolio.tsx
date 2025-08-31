@@ -243,7 +243,7 @@ export default function SpacePortfolio() {
           }}
         >
           <img
-            src="./profile-sun.jpg"
+            src="https://avinair108.github.io/portfolio/profile-sun.jpg"
             alt="Profile"
             className="w-full h-full object-cover rounded-full"
           />
