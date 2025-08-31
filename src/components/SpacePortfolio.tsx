@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { GraduationCap, Briefcase, Code, Heart, PenTool } from 'lucide-react';
+import { GraduationCap, Briefcase, Code, Heart, PenTool, Play } from 'lucide-react';
 import profileImage from '@/assets/profile-sun.jpg';
 
 interface Planet {
@@ -32,16 +32,16 @@ const planets: Planet[] = [
       title: 'Educational Background',
       items: [
         {
-          name: 'Computer Science Degree',
-          description: 'Bachelor of Science in Computer Science',
-          period: '2020-2024',
-          technologies: ['Data Structures', 'Algorithms', 'Software Engineering']
+          name: 'Cornell Tech (Cornell University)',
+          description: 'Master of Engineering in Computer Science',
+          period: 'Aug. 2024 - May 2025',
+          technologies: ['Computer Science', 'Engineering', 'Advanced Studies']
         },
         {
-          name: 'Web Development Bootcamp',
-          description: 'Full-stack development intensive program',
-          period: '2023',
-          technologies: ['React', 'Node.js', 'Database Design']
+          name: 'The University of Texas at Dallas',
+          description: 'Bachelor of Science in Computer Science & Cognitive Science',
+          period: 'Aug. 2020 - May 2024',
+          technologies: ['Computer Science', 'Cognitive Science', 'GPA: 3.8/4.0']
         }
       ]
     },
@@ -56,16 +56,22 @@ const planets: Planet[] = [
       title: 'Work Experience',
       items: [
         {
-          name: 'Senior Frontend Developer',
-          description: 'Led development of responsive web applications',
-          period: '2023-Present',
-          technologies: ['React', 'TypeScript', 'Tailwind CSS']
+          name: 'MagNet Agents',
+          description: 'CTO, Co-Founder - Led end-to-end development of legal tech platform using LLMs and vector search',
+          period: 'February 2025 - Present',
+          technologies: ['React (Vite)', 'Flask', 'Supabase', 'LangChain', 'LLMs']
         },
         {
-          name: 'Full Stack Developer',
-          description: 'Built end-to-end web solutions for clients',
-          period: '2022-2023',
-          technologies: ['Next.js', 'PostgreSQL', 'AWS']
+          name: 'Smart Data Solutions',
+          description: 'Machine Learning Engineer Intern - Built multi-modal model achieving 88% accuracy in document classification',
+          period: 'February 2024 – May 2024',
+          technologies: ['PyTorch', 'VGG16', 'LSTM', 'MySQL', 'SFTP']
+        },
+        {
+          name: 'Paycom',
+          description: 'Software Engineer Intern - Developed job performance metrics application with data visualization',
+          period: 'May 2023 – August 2023',
+          technologies: ['Python', 'React', 'Database Design', 'Data Visualization']
         }
       ]
     },
@@ -80,19 +86,22 @@ const planets: Planet[] = [
       title: 'Featured Projects',
       items: [
         {
-          name: 'E-commerce Platform',
-          description: 'Full-featured online store with payment integration',
-          technologies: ['React', 'Stripe', 'Firebase']
+          name: 'Optimizing RAG in Multi-Hop Tasks',
+          description: 'Developed Multi-Hop RAG system using Gemini API with novel AEI score metric for efficiency optimization',
+          period: 'November 2024 - December 2024',
+          technologies: ['PyTorch', 'Hugging Face', 'Gemini API', 'RAG', 'LLMs']
         },
         {
-          name: 'Task Management App',
-          description: 'Collaborative project management tool',
-          technologies: ['Vue.js', 'Express', 'MongoDB']
+          name: 'Semi-Supervised Learning Re-implementation',
+          description: 'Reimplemented M1 model with modified VAE architecture including convolutional layers, achieving 86% accuracy',
+          period: 'October 2024',
+          technologies: ['PyTorch', 'Variational Auto Encoder', 'FashionMNIST', 'SVM']
         },
         {
-          name: 'Weather Dashboard',
-          description: 'Real-time weather tracking with data visualization',
-          technologies: ['React', 'D3.js', 'Weather API']
+          name: 'Pothole Detector Application',
+          description: 'Trained YOLO v8 model for pothole detection with 87% accuracy and React frontend with map visualization',
+          period: 'November 2023',
+          technologies: ['PyTorch', 'React', 'Leaflet.js', 'YOLO v8', 'Computer Vision']
         }
       ]
     },
@@ -124,27 +133,51 @@ const planets: Planet[] = [
   },
   {
     id: 'content',
-    name: 'Content Creation',
+    name: 'Substack',
     icon: <PenTool className="w-4 h-4" />,
-    description: 'Knowledge Sharing',
+    description: 'Newsletter & Articles',
     details: {
-      title: 'Content & Writing',
+      title: 'Substack Newsletter',
       items: [
         {
-          name: 'Technical Blog',
-          description: 'Weekly articles on web development and tech trends',
+          name: 'Weekly Tech Newsletter',
+          description: 'In-depth analysis of web development trends and insights',
           period: '2022-Present',
-          technologies: ['Technical Writing', 'SEO', 'Analytics']
+          technologies: ['Technical Writing', 'Newsletter', 'Tech Analysis']
         },
         {
-          name: 'YouTube Channel',
-          description: 'Tutorial videos on programming concepts',
+          name: 'Programming Tutorials',
+          description: 'Step-by-step guides for developers of all levels',
           period: '2023-Present',
-          technologies: ['Video Editing', 'JavaScript', 'Teaching']
+          technologies: ['Tutorial Writing', 'Code Examples', 'Best Practices']
         }
       ]
     },
     className: 'planet-5'
+  },
+  {
+    id: 'youtube',
+    name: 'YouTube',
+    icon: <Play className="w-4 h-4" />,
+    description: 'Video Content',
+    details: {
+      title: 'YouTube Channel',
+      items: [
+        {
+          name: 'Programming Tutorials',
+          description: 'Video tutorials on web development and programming concepts',
+          period: '2023-Present',
+          technologies: ['Video Editing', 'JavaScript', 'Teaching', 'Screen Recording']
+        },
+        {
+          name: 'Code Reviews',
+          description: 'Live code reviews and debugging sessions',
+          period: '2023-Present',
+          technologies: ['Code Analysis', 'Debugging', 'Live Streaming']
+        }
+      ]
+    },
+    className: 'planet-6'
   }
 ];
 
@@ -185,23 +218,25 @@ export default function SpacePortfolio() {
 
       {/* Solar System Container */}
       <div className="solar-system w-full h-screen">
-        {/* Single Orbit Circle with All Planets */}
+        {/* Single Orbit Circle */}
         <div className="orbit-circle">
           {planets.map((planet, index) => (
             <div
               key={planet.id}
-              className={`planet ${planet.className}`}
+              className={`planet planet-${index + 1}`}
               onClick={() => setSelectedPlanet(planet)}
-              title={planet.name}
             >
               {planet.icon}
+              <div className="planet-title">
+                {planet.name}
+              </div>
             </div>
           ))}
         </div>
 
         {/* Central Sun (Profile Picture) */}
         <div 
-          className="sun absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
+          className="sun z-20"
           style={{
             width: '150px',
             height: '150px'
@@ -217,11 +252,9 @@ export default function SpacePortfolio() {
         {/* Portfolio Title */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center z-20">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
-            Space Portfolio
+            Avinash Nair
           </h1>
-          <p className="text-muted-foreground text-lg">
-            Navigate through my professional universe
-          </p>
+          
         </div>
 
         {/* Instructions */}
