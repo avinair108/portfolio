@@ -4,7 +4,7 @@ A cosmic-themed portfolio website built with React, TypeScript, and Tailwind CSS
 
 ## 🚀 Live Demo
 
-Visit: [https://avinair108.github.io/port_site/](https://avinair108.github.io/port_site/)
+Visit: [https://avinair108.github.io/portfolio/](https://avinair108.github.io/portfolio/)
 
 *Last updated: $(date)*
 
