@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { GraduationCap, Briefcase, Code, Heart, PenTool, Play } from 'lucide-react';
-import profileImage from '@/assets/profile-sun.jpg';
+
 
 interface Planet {
   id: string;
@@ -243,7 +243,7 @@ export default function SpacePortfolio() {
           }}
         >
           <img
-            src={profileImage}
+            src="/profile-sun.jpg"
             alt="Profile"
             className="w-full h-full object-cover rounded-full"
           />
