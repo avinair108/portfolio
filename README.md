@@ -6,6 +6,8 @@ A cosmic-themed portfolio website built with React, TypeScript, and Tailwind CSS
 
 Visit: [https://avinair108.github.io/port_site/](https://avinair108.github.io/port_site/)
 
+*Last updated: $(date)*
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 18, TypeScript, Tailwind CSS
