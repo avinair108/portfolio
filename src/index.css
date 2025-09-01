@@ -318,6 +318,24 @@
     border-radius: var(--radius);
     box-shadow: 0 25px 50px -12px hsl(var(--background) / 0.8);
   }
+
+  /* YouTube Video Preview Styles */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .planet-modal iframe {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .planet-modal .text-primary {
+    color: hsl(var(--primary));
+  }
+
+  .planet-modal .text-primary:hover {
+    color: hsl(var(--primary) / 0.8);
+  }
 }
 
 @keyframes twinkle {
@@ -450,22 +468,19 @@
 
   /* Adjust title position for mobile */
   .retro-title {
-    font-size: 2rem;
-    letter-spacing: 2px;
-    position: fixed;
-    bottom: 20px; /* Position at bottom instead of top */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 30;
+    font-size: 2rem !important;
+    letter-spacing: 2px !important;
+    position: fixed !important;
+    bottom: 20px !important; /* Position at bottom instead of top */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 999 !important; /* Very high z-index to ensure visibility */
+    top: auto !important; /* Override any top positioning */
   }
 
-  /* Adjust instructions position for mobile */
+  /* Hide instructions text on mobile */
   .solar-system .absolute.bottom-8 {
-    position: fixed;
-    bottom: 80px; /* Position above the title */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
+    display: none !important; /* Hide instructions on mobile */
   }
 }
 
@@ -491,13 +506,13 @@
   }
 
   .retro-title {
-    font-size: 1.5rem;
-    bottom: 15px; /* Position at bottom for small screens too */
+    font-size: 1.5rem !important;
+    bottom: 15px !important; /* Position at bottom for small screens too */
+    z-index: 999 !important; /* Ensure high z-index on small screens too */
   }
 
-  /* Ensure instructions are visible on small screens */
+  /* Hide instructions text on small screens too */
   .solar-system .absolute.bottom-8 {
-    bottom: 70px; /* Position above the title on small screens */
-    font-size: 11px;
+    display: none !important; /* Hide instructions on small screens too */
   }
 }

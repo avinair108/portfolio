@@ -17,6 +17,9 @@ interface Planet {
       description: string;
       period?: string;
       technologies?: string[];
+      videoId?: string; // Added for YouTube video
+      videoUrl?: string; // Added for YouTube video
+      articleUrl?: string; // Added for Substack article
     }>;
   };
   className: string;
@@ -137,19 +140,21 @@ const planets: Planet[] = [
     icon: <PenTool className="w-4 h-4" />,
     description: 'Newsletter & Articles',
     details: {
-      title: 'Substack Newsletter',
+      title: 'Substack Newsletter - avithecarry',
       items: [
         {
-          name: 'Weekly Tech Newsletter',
-          description: 'In-depth analysis of web development trends and insights',
-          period: '2022-Present',
-          technologies: ['Technical Writing', 'Newsletter', 'Tech Analysis']
+          name: 'How Gardening Inspired Me To Be Great',
+          description: 'A reflection on how tending to mystery plants in the brutal Texas summer taught me about perseverance, adaptation, and finding purpose in helping living things thrive despite harsh environments.',
+          period: 'July 25, 2025',
+          technologies: ['Personal Growth', 'Gardening', 'Philosophy', 'Writing'],
+          articleUrl: 'https://avithecarry.substack.com/p/how-gardening-inspired-me-to-be-great?r=62kjgb'
         },
         {
-          name: 'Programming Tutorials',
-          description: 'Step-by-step guides for developers of all levels',
-          period: '2023-Present',
-          technologies: ['Tutorial Writing', 'Code Examples', 'Best Practices']
+          name: 'Vibe Coding (and Debugging) a Legal Tech Startup',
+          description: 'My experience building an AI-powered business development tool for lawyers, including the highs and lows of using AI coding tools like Bolt, Cursor, and Gemini for MVP development.',
+          period: 'July 22, 2025',
+          technologies: ['AI Development', 'Legal Tech', 'Startup', 'Flask', 'Supabase'],
+          articleUrl: 'https://avithecarry.substack.com/p/vibe-coding-and-debugging-a-legal?r=62kjgb'
         }
       ]
     },
@@ -161,19 +166,23 @@ const planets: Planet[] = [
     icon: <Play className="w-4 h-4" />,
     description: 'Video Content',
     details: {
-      title: 'YouTube Channel',
+      title: 'YouTube Channel - avithecarry',
       items: [
         {
-          name: 'Programming Tutorials',
-          description: 'Video tutorials on web development and programming concepts',
-          period: '2023-Present',
-          technologies: ['Video Editing', 'JavaScript', 'Teaching', 'Screen Recording']
+          name: 'Surviving Bears and Snakes in Pagosa Springs',
+          description: 'Vlog of my roadtrip to Pagosa Springs',
+          period: '2025',
+          technologies: ['Vlog', 'Nature', 'Wildlife', 'Hiking'],
+          videoId: 'tFA6ihoAGEE',
+          videoUrl: 'https://youtu.be/tFA6ihoAGEE?si=CFPVj_jnC4aaCw2_'
         },
         {
-          name: 'Code Reviews',
-          description: 'Live code reviews and debugging sessions',
-          period: '2023-Present',
-          technologies: ['Code Analysis', 'Debugging', 'Live Streaming']
+          name: 'Trying to Learn How to Garden',
+          description: 'Doing yard work, trying to learn how to garden',
+          period: '2025',
+          technologies: ['Planting', 'Gardening', 'Box Garden'],
+          videoId: 'jTwv777-X0U',
+          videoUrl: 'https://youtu.be/jTwv777-X0U?si=CVQfQ_k2j4hiMUSc'
         }
       ]
     },
@@ -293,6 +302,65 @@ export default function SpacePortfolio() {
                     )}
                   </div>
                 </CardHeader>
+                
+                {/* YouTube Video Preview */}
+                {item.videoId && (
+                  <div className="px-6 pb-4">
+                    <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-muted">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${item.videoId}?rel=0&modestbranding=1`}
+                        title={item.name}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="mt-3 flex items-center justify-between">
+                      <a
+                        href={item.videoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                      >
+                        <Play className="w-4 h-4" />
+                        Watch on YouTube
+                      </a>
+                      <Badge variant="outline" className="text-xs">
+                        {item.videoId}
+                      </Badge>
+                    </div>
+                  </div>
+                )}
+
+                {/* Substack Article Preview */}
+                {item.articleUrl && (
+                  <div className="px-6 pb-4">
+                    <div className="relative w-full aspect-[3/2] rounded-lg overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200">
+                      <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-orange-600/20" />
+                      <div className="relative p-6 flex flex-col justify-center items-center text-center h-full">
+                        <PenTool className="w-12 h-12 text-orange-600 mb-3" />
+                        <h3 className="text-lg font-semibold text-orange-900 mb-2">{item.name}</h3>
+                        <p className="text-sm text-orange-700 line-clamp-3">{item.description}</p>
+                      </div>
+                    </div>
+                    <div className="mt-3 flex items-center justify-between">
+                      <a
+                        href={item.articleUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                      >
+                        <PenTool className="w-4 h-4" />
+                        Read on Substack
+                      </a>
+                      <Badge variant="outline" className="text-xs">
+                        Article
+                      </Badge>
+                    </div>
+                  </div>
+                )}
+                
                 {item.technologies && (
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
