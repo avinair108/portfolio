@@ -250,15 +250,15 @@ export default function SpacePortfolio() {
         </div>
 
         {/* Portfolio Title */}
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center z-20">
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center z-20 md:top-8 md:left-1/2 md:transform md:-translate-x-1/2">
+          <h1 className="retro-title text-4xl md:text-6xl font-bold mb-2">
             Avinash Nair
           </h1>
           
         </div>
 
         {/* Instructions */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-20">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-20 md:bottom-8 md:left-1/2 md:transform md:-translate-x-1/2">
           <p className="text-muted-foreground text-sm">
             Click on any planet to explore that area of my experience
           </p>

@@ -69,47 +69,32 @@
     --gradient-planet-6: radial-gradient(circle at 30% 30%, hsl(var(--planet-youtube)), hsl(0 70% 35%));
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -298,7 +283,6 @@
     background: var(--gradient-planet-6);
   }
 
-
   /* Sun (Profile) Styling */
   .sun {
     background: var(--gradient-sun);
@@ -351,8 +335,6 @@
   to { transform: rotate(-360deg); }
 }
 
-
-
 @keyframes sun-pulse {
   0%, 100% { transform: translate(-50%, -50%) scale(1); filter: brightness(1); }
   50% { transform: translate(-50%, -50%) scale(1.05); filter: brightness(1.1); }
@@ -361,4 +343,161 @@
 @keyframes solar-flare {
   0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.3; }
   50% { transform: rotate(180deg) scale(1.1); opacity: 0.6; }
+}
+
+/* Retro Pixelated Title Styling */
+.retro-title {
+  font-family: 'Courier New', monospace;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  text-shadow: 
+    2px 2px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    4px 4px 0 #000,
+    -4px -4px 0 #000,
+    4px -4px 0 #000,
+    -4px 4px 0 #000;
+}
+
+.retro-title::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: 
+    linear-gradient(90deg, #000 1px, transparent 1px),
+    linear-gradient(0deg, #000 1px, transparent 1px);
+  background-size: 4px 4px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .solar-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 220px; /* Adjusted padding for sun at 80px */
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .orbit-circle {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    animation: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .planet {
+    position: static;
+    margin: 0;
+    animation: none;
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+  }
+
+  .planet:hover {
+    transform: scale(1.1);
+  }
+
+  .planet-title {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+    color: hsl(var(--foreground));
+    padding: 4px 8px;
+    font-size: 12px;
+    margin-top: 8px;
+    white-space: normal;
+    text-align: center;
+    transform: none;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    display: none; /* Hide planet titles on mobile */
+  }
+
+  .planet-title::after {
+    display: none;
+  }
+
+  .sun {
+    position: fixed;
+    top: 80px; /* Increased spacing from title */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    z-index: 10;
+  }
+
+  /* Adjust title position for mobile */
+  .retro-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    position: fixed;
+    bottom: 20px; /* Position at bottom instead of top */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+  }
+
+  /* Adjust instructions position for mobile */
+  .solar-system .absolute.bottom-8 {
+    position: fixed;
+    bottom: 80px; /* Position above the title */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .solar-system {
+    padding-top: 180px;
+  }
+
+  .sun {
+    top: 100px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .planet {
+    width: 70px;
+    height: 70px;
+  }
+
+  .planet-title {
+    display: none; /* Ensure planet titles are hidden on small screens */
+  }
+
+  .retro-title {
+    font-size: 1.5rem;
+    bottom: 15px; /* Position at bottom for small screens too */
+  }
+
+  /* Ensure instructions are visible on small screens */
+  .solar-system .absolute.bottom-8 {
+    bottom: 70px; /* Position above the title on small screens */
+    font-size: 11px;
+  }
 }
